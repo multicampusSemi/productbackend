@@ -1,0 +1,21 @@
+package com.project.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.project.service.krhProductService;
+
+import lombok.RequiredArgsConstructor;
+
+@Controller
+@RequiredArgsConstructor
+public class krhProductController {
+	
+	@GetMapping("/productpage")
+	public String list(Model model) {
+		model.addAttribute("product",krhProductService.findAll());
+		return "krh_html/product";
+	}
+	
+}

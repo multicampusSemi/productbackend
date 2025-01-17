@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@100..900&display=swap" rel="stylesheet">
+    <script defer src="script/main.js"></script>
+</head>
+<body>
+    <div id="headers"></div>
+    <div class="main">
+        <div class="main-page">
+                <div id="mainn">
+                    <main>
+                        <div class="slider">
+                            <div class="slides">
+                                <img src="/src/main/resources/static/krh_img/newjeans1.jpeg">
+                                <img src="/src/main/resources/static/krh_img/newjeans3.jpeg">
+                                <img src="/src/main/resources/static/krh_img/newjeans4.jpeg">
+                            </div>
+                        </div>
+                        <div class="newItem">
+                            <h2>NEW ITEMS</h2>
+                            <ul class="newItems">
+                                <li><a href="#"><img src="/src/main/resources/static/krh_img/lightstick3.png"/>
+                                        <div class="product-info">
+                                            <h3>상품명</h3>
+                                            <p>₩ 100,000</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li><a href="#"><img src="/src/main/resources/static/krh_img/lightstick3.png"/>
+                                        <div class="product-info">
+                                            <h3>상품명</h3>
+                                            <p>₩ 100,000</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li><a href="#"><img src="/src/main/resources/static/krh_img/lightstick3.png"/>
+                                        <div class="product-info">
+                                            <h3>상품명</h3>
+                                            <p>₩ 100,000</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li><a href="#"><img src="/Project/img/lightstick3.png"/>
+                                        <div class="product-info">
+                                            <h3>상품명</h3>
+                                            <p>₩ 100,000</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li><a href="#"><img src="/Project/img/lightstick3.png"/>
+                                        <div class="product-info">
+                                            <h3>상품명</h3>
+                                            <p>₩ 100,000</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </main>
+                </div>
+            </div>
+        </div>
+        <div id="footers"></div>
+</body>
+</html>

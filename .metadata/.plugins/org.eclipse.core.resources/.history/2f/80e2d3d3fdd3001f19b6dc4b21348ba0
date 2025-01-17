@@ -1,0 +1,46 @@
+package com.project.controller;
+
+import java.util.List;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.project.model.KrhProduct;
+import com.project.model.krhCategory;
+import com.project.service.krhProductService;
+
+import lombok.RequiredArgsConstructor;
+
+@Controller
+@RequiredArgsConstructor
+public class krhMainController {
+	private final krhProductService krhProductService;
+	
+	@GetMapping("/krhmain")
+    public String main(Model model) {
+		List<KrhProduct> products = krhProductService.findAll();
+		model.addAttribute("products",products);
+		return "krhmain";
+    }
+	
+	@GetMapping("/newproduct")
+	public String newproduct(Model model) {
+		List<KrhProduct> products = krhProductService.findAll();
+		model.addAttribute("products",products);
+		// 카테고리 목록을 가져와서 모델에 추가
+	    List<krhCategory> categories = krhProductService.getAllCategories();
+	    model.addAttribute("categories", categories);
+		return "krhmain";
+	}
+	
+	@GetMapping("/krhmainC")
+	public String getMainPage(Model model) {
+	    // 카테고리 목록을 가져와서 모델에 추가
+	    List<krhCategory> categories = krhProductService.getAllCategories();
+	    model.addAttribute("categories", categories);
+	    
+	    // 다른 모델 속성들도 추가할 수 있음
+	    return "krhmain";  // krhmain.jsp로 이동
+	}
+}

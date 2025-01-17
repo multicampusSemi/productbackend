@@ -1,0 +1,10 @@
+package com.project.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+
+public class krhMainController {
+	@GetMapping("/krhmain")
+    public String agreement() {
+        return "krhmain"; // 이 파일은 /WEB-INF/views/krhagreement.jsp에 위치해야 합니다.
+    }
+}

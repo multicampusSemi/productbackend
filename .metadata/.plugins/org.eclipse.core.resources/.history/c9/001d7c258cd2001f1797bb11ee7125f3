@@ -1,0 +1,29 @@
+package com.project.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.project.mapper.krhProductMapper;
+import com.project.model.KrhProduct;
+
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
+public class KrhProductServiceImpl implements krhProductService{
+	private final krhProductMapper krhProductMapper;
+
+	@Override
+	public List<KrhProduct> productPageSearch() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<KrhProduct> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+}

@@ -1,0 +1,18 @@
+package com.project.model;
+
+import java.time.LocalDateTime;
+
+import lombok.Data;
+
+@Data
+public class KrhProduct {
+	int product_id;
+	String product_name;
+	String product_code;
+	BigDecimal product_price;
+	String categoryId;
+	String photo;
+	int shipping_fee;
+	LocalDateTime created_at;
+	String sessionId;
+}

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.project.mapper.krhProductMapper">
+	<!--리스트업-->
+	<select id="findAll" resultType="com.project.model.KrhProduct">
+		SELECT * FROM products ORDER BY created_at DESC
+	</select>
+	
+	<!--검색-->
+	<select id="productPageSearch" parameterType="String" resultType="com.project.model.KrhProduct">
+		SELECT * 
+	    FROM products
+	    WHERE product_name LIKE CONCAT('%', #{keyword}, '%')
+	    ORDER BY product_id DESC;
+	</select>
+
+    <!-- 카테고리 ID에 해당하는 카테고리 정보 조회 -->
+    <select id="getCategoryByCategoryById" resultType="com.project.model.KrhCategory">
+        SELECT * FROM categories WHERE category_id = #{categoryId}
+    </select>
+
+    <!-- 카테고리 ID에 해당하는 상품들 조회 -->
+    <select id="getProductsByCategoryId" resultType="com.project.model.KrhProduct">
+        SELECT * FROM products WHERE category_id = #{categoryId}
+    </select>
+</mapper>

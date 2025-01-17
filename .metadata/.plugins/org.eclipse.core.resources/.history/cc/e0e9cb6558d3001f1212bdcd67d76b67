@@ -1,0 +1,10 @@
+package com.project.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+
+public class krhMainController {
+	@GetMapping("/krhmain")
+    public String main() {
+        return "krhmain";
+    }
+}

@@ -1,0 +1,44 @@
+package com.project.controller;
+
+import java.util.List;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.project.model.KrhProduct;
+import com.project.service.krhProductService;
+
+import lombok.RequiredArgsConstructor;
+
+@Controller
+@RequiredArgsConstructor
+public class krhProductController {
+	private final krhProductService krhProductService;
+
+	//리스트업
+	@GetMapping("/productpage")
+	public String list(Model model) {
+		model.addAttribute("products",krhProductService.findAll());
+		return "krhproduct";
+	}
+	
+	//카테고리
+	@GetMapping("/productC")
+    public String products(@RequestParam String category, Model model) {
+        List<KrhProduct> products = krhProductService.getProductsByCategory(category);
+        model.addAttribute("products", products);
+        model.addAttribute("category", category);
+        return "krhproduct";  // 하나의 products.jsp로 모든 카테고리 처리
+    }
+	
+	//검색
+	@GetMapping("/search")
+	public String search(@RequestParam("keyword") String keyword, Model model) {
+		System.out.println("------------"+keyword);
+		model.addAttribute("products", krhProductService.productPageSearch(keyword));
+		return "list";
+	}
+
+}

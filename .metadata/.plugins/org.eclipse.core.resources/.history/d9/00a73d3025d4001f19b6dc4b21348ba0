@@ -1,0 +1,17 @@
+package com.project.service;
+
+import java.util.List;
+
+import com.project.model.KrhNotice;
+
+public interface krhNoticeService {
+	List<KrhNotice> getAllNotice();
+	static void incrementViews(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+	static KrhNotice getBoardById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}

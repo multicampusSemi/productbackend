@@ -1,0 +1,38 @@
+package com.project.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.project.service.krhNoticeService;
+
+@Controller
+public class krhNoticeController {
+	private final krhNoticeService krhnoticeService;
+
+	public krhNoticeController(krhNoticeService krhnoticeService) {
+		super();
+		this.krhnoticeService = krhnoticeService;
+	}
+	
+	@GetMapping("/krhnotice")
+	public String list(@RequestParam(value = "page", defaultValue = "0") int page, Model model) {
+	    int pageSize = 10;
+	    int totalItems = krhNoticeService.getAllNotice().size(); // 총 게시글 수
+	    int totalPages = (int) Math.ceil(totalItems / (double) pageSize);
+
+	    // totalPages가 0보다 작을 경우 최소 1로 설정
+	    totalPages = Math.max(totalPages, 1);
+
+	    int start = page * pageSize;
+	    List<Board> boards = boardService.getAllBoards().subList(
+	            start, Math.min(start + pageSize, totalItems)
+	    );
+
+	    model.addAttribute("boardList", boards);
+	    model.addAttribute("currentPage", page);
+	    model.addAttribute("totalPages", totalPages);
+
+	    return "list";
+	}
+}

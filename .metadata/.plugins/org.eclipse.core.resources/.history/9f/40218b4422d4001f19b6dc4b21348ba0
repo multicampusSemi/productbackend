@@ -1,0 +1,11 @@
+package com.project.model;
+
+import java.time.LocalDateTime;
+
+public class KrhNotice {
+	private int id;
+    private String title;
+    private String content;
+    private LocalDateTime createdAt;
+    private int views;
+}

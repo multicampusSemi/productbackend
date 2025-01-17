@@ -1,0 +1,7 @@
+.notice .notice-page{
+    font-family:"Hahmlet", serif;
+    width:1500px;
+    justify-self: center;
+    margin-top:100px;
+    margin-bottom:100px;
+}

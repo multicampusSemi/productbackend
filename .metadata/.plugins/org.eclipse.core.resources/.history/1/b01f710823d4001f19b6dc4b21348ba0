@@ -1,0 +1,22 @@
+package com.project.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.project.service.krhNoticeService;
+
+@Controller
+public class krhNoticeController {
+	private final krhNoticeService krhnoticeService;
+
+	public krhNoticeController(krhNoticeService krhnoticeService) {
+		super();
+		this.krhnoticeService = krhnoticeService;
+	}
+	
+	@GetMapping("/krhnotice")
+	public String list(@RequestParam(value = "page", defaultValue = "0") int page, Model model) {
+	   
+	}
+}

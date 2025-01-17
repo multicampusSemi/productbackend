@@ -1,0 +1,27 @@
+package com.project.mapper;
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+import com.project.model.KrhProduct;
+import com.project.model.krhCategory;
+
+@Mapper
+public interface krhProductMapper {
+	// 상품 페이지 검색
+    List<KrhProduct> productPageSearch(String keyword);
+    
+    //상품 리스트 갖고오기
+    List<KrhProduct> findAll();
+
+    // 카테고리별 상품 조회 (category는 String으로 받음)
+    List<KrhProduct> getProductsByCategory(String category);
+
+    // 카테고리 ID에 해당하는 카테고리 정보 조회
+    krhCategory getCategoryByCategoryById(String categoryId);
+
+    // 카테고리 ID에 해당하는 상품들 조회
+    List<KrhProduct> getProductsByCategoryId(String categoryId);
+}

@@ -1,0 +1,26 @@
+const slides = document.querySelector('.slides');
+    const slideCount = slides.children.length;
+    let currentIndex = 0;
+
+    const updateSlidePosition = () => {
+      const slideWidth = slides.children[0].clientWidth;
+      slides.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+    };
+
+    const showNextSlide = () => {
+      currentIndex = (currentIndex + 1) % slideCount;
+      updateSlidePosition();
+    };
+
+    const showPrevSlide = () => {
+      currentIndex = (currentIndex - 1 + slideCount) % slideCount;
+      updateSlidePosition();
+    };
+
+    // 자동 슬라이드 (5초 간격)
+    setInterval(showNextSlide, 7000);
+
+    $(document).ready(function() {
+      $('#headers').load('header.html');  // header.html 파일의 내용을 #header div에 로드
+      $('#footers').load('footer.html');  // footer.html 파일의 내용을 #footer div에 로드
+  });
