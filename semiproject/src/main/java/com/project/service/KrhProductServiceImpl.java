@@ -52,18 +52,10 @@ public class KrhProductServiceImpl implements krhProductService{
 	@Override
 	public void addToCart(BookingList bookingList) {
 		// TODO Auto-generated method stub
-		// 장바구니에 이미 상품이 있는지 확인
-        BookingList existingItem = krhProductMapper.findByUserAndProduct(bookingList.getUserId(), bookingList.getProductId());
-        
-        if (existingItem != null) {
-            // 상품이 이미 장바구니에 있으면 수량 증가
-            existingItem.setProductCount(existingItem.getProductCount() + bookingList.getProductCount());
-            krhProductMapper.updateCart(existingItem);  // 수량 업데이트
-        } else {
-            // 상품이 없으면 새로 추가
-            krhProductMapper.addToCart(bookingList);
-        }
+		// 장바구니에 이미 상품이 있는지 확
+		krhProductMapper.addToCart(bookingList);
 	}
+
 
 	
 }

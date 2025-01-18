@@ -21,11 +21,14 @@
                 <div class="headerbackground">
                     <nav>
                         <ul class="navtag1">
-                        <c:if test="${empty sessionScope.userId}">
-                            <li><a href="#">login</a></li>
+                        <c:if test="${empty sessionScope.loggedInUser}">
+                            <li><a href="/web/main">login</a></li>
                             <li><a href="#">join</a></li>
                         </c:if>
+                         <c:if test="${not empty sessionScope.loggedInUser}">
+                            <li><a href="/web/logout">logout</a></li>
                         </ul>
+                        </c:if>
                     </nav>
                     <div class="title">
                         <a href="/krhmain">
@@ -36,10 +39,10 @@
                         <ul class="navtag2">
                             <li class="left-item"><a href="/findAll">PRODUCT</a>
                             </li>
-                            <c:if test="${not empty sessionScope.userId}">
+                            <c:if test="${not empty sessionScope.loggedInUser}">
 	                            <li class="right-item"><a href="#">마이페이지</a></li>
-	                            <li class="right-item"><a href="#">장바구니</a></li>
-                            </c:if>
+	                            <li class="right-item"><a href="/booking">장바구니</a></li>
+	                       </c:if>
                         </ul>
                     </nav>
                 </div>

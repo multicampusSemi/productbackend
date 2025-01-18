@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 
 import com.project.model.BookingList;
 import com.project.model.KrhProduct;
+import com.project.model.kdhUser;
 import com.project.model.krhCategory;
 import com.project.service.krhProductService;
 
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 
 @Controller
@@ -84,8 +86,34 @@ public class krhProductController {
 		//장바구니에 추가
 		// 장바구니에 상품 추가
 	 	@PostMapping("/addcart")
-	    public String addToCart(BookingList bookingList) {
-	        krhProductService.addToCart(bookingList);
-	        return "redirect:/krhproduct";
+	    public String addToCart(@RequestParam("productId") Integer productId,
+                @RequestParam("productCount") Integer productCount,
+                HttpSession session, // 세션에서 loggedInUser 객체를 가져옴
+                Model model, String productdescription) {
+	 		if (productCount == null || productCount <= 0) {
+	 	        productCount = 1;
+	 	    }
+	 	// HttpSession에서 loggedInUser를 가져옵니다.
+	 	    kdhUser loggedInUser = (kdhUser) session.getAttribute("loggedInUser");
+	 	    if (loggedInUser == null) {
+	 	        model.addAttribute("message", "로그인 후 이용해 주세요.");
+	 	        return "redirect:/login"; // 로그인 페이지로 리다이렉트
+	 	    }
+
+	 	    Integer userId = loggedInUser.getId();
+	 	    System.out.println("Received quantity: " + productCount);
+
+	 	    // 장바구니에 추가할 상품 객체 생성
+	 	    BookingList bookingList = new BookingList();
+	 	    bookingList.setUserId(userId);
+	 	    bookingList.setProductId(productId);
+	 	    bookingList.setProductCount(1);
+	 	    bookingList.setProductdescription(productdescription);
+
+	 	    // 장바구니에 상품 추가
+	 	    krhProductService.addToCart(bookingList);
+
+	 	    model.addAttribute("message", "상품이 장바구니에 추가되었습니다.");
+	 	    return "redirect:/booking";
 	    }
 }

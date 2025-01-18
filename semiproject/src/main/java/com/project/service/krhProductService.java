@@ -22,6 +22,4 @@ public interface krhProductService {
 
     //장바구니 추가
 	void addToCart(BookingList bookingList);
-    
-	
 }

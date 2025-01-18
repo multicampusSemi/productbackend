@@ -26,8 +26,4 @@ public interface krhProductMapper {
 
 	 //장바구니 추가
 	void addToCart(BookingList bookingList);
-	//장바구니 수량만 추가
-	void updateCart(BookingList existingItem);
-	//장바구니 기존에 존재하는 지 확인
-	BookingList findByUserAndProduct(int userId, int productId);
 }

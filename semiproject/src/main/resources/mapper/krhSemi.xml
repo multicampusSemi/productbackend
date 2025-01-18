@@ -32,20 +32,21 @@
 		
 		<!-- 장바구니에 상품 추가 -->
 		<insert id="addToCart" parameterType="com.project.model.BookingList">
-		    INSERT INTO bookinglist(user_id, product_id, product_count)
-		    VALUES (#{userId}, #{productId}, #{productCount})
+		    INSERT INTO bookinglist (user_id, product_id, product_add, product_count, status)
+		    VALUES (#{userId}, #{productId}, NOW(), #{productCount}, 'added')
 		</insert>
 		
-		<!-- 장바구니에 이미 상품이 있는지 확인 -->
+		<!-- 장바구니에 이미 상품이 있는지 확인 
 		<select id="findByUserAndProduct" resultType="com.project.model.BookingList">
 		    SELECT * FROM bookinglist WHERE user_id = #{userId} AND product_id = #{productId}
 		</select>
 		
-		<!-- 장바구니에 있는 상품 수량 업데이트 -->
+	
 		<update id="updateCart" parameterType="com.project.model.BookingList">
 		    UPDATE bookinglist 
 		    SET product_count = product_count + #{productCount}
 		    WHERE user_id = #{userId} AND product_id = #{productId}
 		</update>
+		-->
 		
 </mapper>
